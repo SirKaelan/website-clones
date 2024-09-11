@@ -14,8 +14,6 @@ export const Navigation = () => {
     setMobileNavOpen(!mobileNavOpen);
   };
 
-  console.log(heartIcon);
-
   return (
     <nav className=" shadow-md">
       <div className="py-4 px-6 flex justify-between items-center">
