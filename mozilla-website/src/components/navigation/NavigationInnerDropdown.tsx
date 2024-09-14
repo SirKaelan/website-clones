@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { NavigationDropdownButtonData } from "src/data/mainNavData";
+import { InnerDropdownButton } from "src/data/mainNavData";
 import arrowIcon from "src/assets/arrow-downwards-icon.svg";
 
-export const NavigationDropdown = ({
+export const NavigationInnerDropdown = ({
   dropdownData,
 }: NavigationDropdownProps) => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
@@ -53,5 +53,5 @@ export const NavigationDropdown = ({
 };
 
 type NavigationDropdownProps = {
-  dropdownData: NavigationDropdownButtonData;
+  dropdownData: InnerDropdownButton;
 };

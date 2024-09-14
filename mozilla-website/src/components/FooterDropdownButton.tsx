@@ -3,7 +3,7 @@ import { DropdownButtonData } from "src/data/footerData";
 
 import plusIconWhite from "src/assets/plus-icon-white.svg";
 
-export const DropdownButton = ({ buttonData }: DropdownButtonProps) => {
+export const FooterDropdownButton = ({ buttonData }: DropdownButtonProps) => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
   const toggleDropdown = () => {

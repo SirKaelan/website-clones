@@ -1,4 +1,4 @@
-import { DropdownButton } from "src/components/DropdownButton";
+import { FooterDropdownButton } from "src/components/FooterDropdownButton";
 import {
   footerButtonData,
   socialMediaData,
@@ -30,7 +30,7 @@ export const Footer = () => {
           {/* Footer buttons */}
           {footerButtonData.map((footerButtonData) => (
             <section key={footerButtonData.title} className="mb-2">
-              <DropdownButton buttonData={footerButtonData} />
+              <FooterDropdownButton buttonData={footerButtonData} />
             </section>
           ))}
           {/* Social media data */}
