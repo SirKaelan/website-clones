@@ -15,7 +15,7 @@ export const NewsletterForm = () => {
   };
 
   return (
-    <div className="text-left max-w-sm">
+    <div className="text-left max-w-sm md:max-w-full">
       <form className="mb-6" onSubmit={handleSubmit}>
         <fieldset className="mb-6 flex flex-col gap-5">
           <div>
@@ -94,7 +94,7 @@ export const NewsletterForm = () => {
         </fieldset>
 
         {/* Submit button */}
-        <div className="inline-block text-center">
+        <div className="inline-block text-center md:w-full">
           <button
             type="submit"
             className="py-1.5 px-6 w-full font-bold text-white bg-black border-2 border-black rounded hover:bg-opacity-15 hover:text-black transition"
