@@ -26,10 +26,10 @@ export const Footer = () => {
           </a>
         </div>
 
-        <div>
-          {/* Footer buttons */}
+        <div className="grid grid-cols-1 gap-y-2 xs:grid-cols-2 xs:gap-y-9 xs:gap-x-6">
+          {/* Footer menu content */}
           {footerButtonData.map((footerButtonData) => (
-            <section key={footerButtonData.title} className="mb-2">
+            <section key={footerButtonData.title}>
               <FooterDropdownButton buttonData={footerButtonData} />
             </section>
           ))}

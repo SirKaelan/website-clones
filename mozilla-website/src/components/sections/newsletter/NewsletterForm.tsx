@@ -46,7 +46,7 @@ export const NewsletterForm = () => {
                   id="id_country"
                   name="country"
                   defaultValue="bg"
-                  className="p-2 w-full border-2 rounded border-gray-400 hover:border-blue-800"
+                  className="p-2 w-full bg-white border-2 rounded border-gray-400 hover:border-blue-800"
                 >
                   <option value="bg">Bulgaria</option>
                   <option value="uk">United Kingdom</option>
@@ -66,7 +66,7 @@ export const NewsletterForm = () => {
                   id="id_lang"
                   name="lang"
                   defaultValue="bg"
-                  className="p-2 w-full border-2 rounded border-gray-400 hover:border-blue-800"
+                  className="p-2 w-full bg-white border-2 rounded border-gray-400 hover:border-blue-800"
                 >
                   <option value="bg">Bulgarian</option>
                   <option value="uk">English</option>

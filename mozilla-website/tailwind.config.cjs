@@ -14,6 +14,14 @@ module.exports = {
           "linear-gradient(90deg,#e8e7f2,#e5e9f5,#e2ebf7,#deedf8,#dbeff8,#daf0f7,#daf2f5,#daf3f3,#dcf4f1,#dff5ef,#e2f5ee,#e5f6ec)",
       },
     },
+
+    // To add smaller breakpoints i need to
+    // override the entire "screens" key
+    // that can be done with "defaultTheme" object
+    screens: {
+      xs: "480px",
+      ...default_theme.screens,
+    },
   },
   plugins: [],
 };

@@ -21,6 +21,8 @@ export const footerButtonData: DropdownButtonData[] = [
       { title: "Mozilla Manifesto", href: "#" },
       { title: "Press Center", href: "#" },
       { title: "Mozilla Blog", href: "#" },
+      { title: "Careers", href: "#" },
+      { title: "Contact", href: "#" },
     ],
   },
   {
