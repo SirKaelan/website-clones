@@ -10,7 +10,7 @@ export const ProductCard = ({
   productIconPath,
 }: ProductCardProps) => {
   return (
-    <li className="w-72 flex flex-col gap-10 items-center">
+    <li className="w-72 flex flex-col justify-between items-center h-[200px]">
       <img
         src={productIconPath}
         alt={`${productName} Logo`}
