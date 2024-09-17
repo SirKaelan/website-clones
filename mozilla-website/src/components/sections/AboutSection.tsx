@@ -1,8 +1,9 @@
+import { Box } from "src/components/Box";
 import dinoHead from "src/assets/dinosaur-head.svg";
 
 export const AboutSection = () => {
   return (
-    <section className="bg-gray-100 px-6 pt-12 md:pt-12 md:px-16">
+    <Box bgColor="gray" removePadding={"bottom"}>
       <div className="max-w-4xl mx-auto">
         <h2 className="font-heading text-3xl font-bold md:text-4xl md:text-center">
           That one time we gave away our source-code…
@@ -45,6 +46,6 @@ export const AboutSection = () => {
           />
         </div>
       </div>
-    </section>
+    </Box>
   );
 };

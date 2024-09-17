@@ -8,3 +8,21 @@
 .container-padding {
   @apply py-12 px-6;
 }
+
+@layer utilities {
+  .remove-padding-top {
+    padding-top: 0 !important;
+  }
+
+  .remove-padding-bottom {
+    padding-bottom: 0 !important;
+  }
+
+  .remove-padding-left {
+    padding-left: 0 !important;
+  }
+
+  .remove-padding-right {
+    padding-right: 0 !important;
+  }
+}
