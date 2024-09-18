@@ -1,5 +1,6 @@
 import { Box } from "src/components/Box";
 import { Container } from "src/components/Container";
+import { Heading } from "src/components/Heading";
 
 export const Header = () => {
   return (
@@ -7,9 +8,13 @@ export const Header = () => {
       <Box>
         <Container width="4.5xl">
           <div className="font-heading text-center flex flex-col justify-center items-center gap-4 md:gap-6">
-            <h1 className="text-3xl font-bold md:text-5xl">
+            <Heading
+              variant="h1"
+              fontSize="3.5xl"
+              breakpointStyles={{ md: { fontSize: "5.5xl" } }}
+            >
               Mission-driven. People-powered.
-            </h1>
+            </Heading>
             <p className="text-lg md:text-3xl">
               We’re not a normal tech company. The things we create prioritize
               people and their privacy over profits. We exist to make the

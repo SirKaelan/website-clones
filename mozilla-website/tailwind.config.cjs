@@ -16,6 +16,12 @@ module.exports = {
       maxWidth: {
         "4.5xl": "928px",
       },
+      fontSize: {
+        "2.5xl": ["28px", { lineHeight: "30px" }],
+        "3.5xl": ["32px", { lineHeight: "32px" }],
+        "4.5xl": ["38px", { lineHeight: "39.9px" }],
+        "5.5xl": ["54px", { lineHeight: "54px" }],
+      },
     },
 
     // To add smaller breakpoints i need to

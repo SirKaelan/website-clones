@@ -1,14 +1,20 @@
 import { Box } from "src/components/Box";
 import { Container } from "src/components/Container";
+import { Heading } from "src/components/Heading";
 import dinoHead from "src/assets/dinosaur-head.svg";
 
 export const AboutSection = () => {
   return (
     <Box bgColor="gray" removePadding={"bottom"}>
       <Container width="4.5xl">
-        <h2 className="font-heading text-3xl font-bold md:text-4xl md:text-center">
+        <Heading
+          variant="h2"
+          fontSize="3.5xl"
+          textAlign="left"
+          breakpointStyles={{ md: { fontSize: "4.5xl", textAlign: "center" } }}
+        >
           That one time we gave away our source-code…
-        </h2>
+        </Heading>
         <div className="flex flex-col items-start gap-5 my-6 text-lg font-thin">
           <p>
             The Mozilla project was founded in San Francisco in 1998, when the

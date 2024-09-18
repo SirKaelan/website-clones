@@ -1,5 +1,6 @@
 import { Box } from "src/components/Box";
 import { Container } from "src/components/Container";
+import { Heading } from "src/components/Heading";
 import { PromoCard } from "src/components/PromoCard";
 
 import img1 from "src/assets/img-1.jpg";
@@ -16,9 +17,16 @@ export const MissionSection = () => {
             <div className="flex flex-col items-center gap-12 md:grid md:grid-cols-2 md:gap-x-16 xl:gap-x-20">
               <img src={img1} alt="Image of colorwave" className="md:order-2" />
               <div className="md:text-left md:order-1">
-                <h2 className="text-3xl font-bold font-heading mb-4 md:text-4xl">
+                <Heading
+                  variant="h2"
+                  fontSize="3.5xl"
+                  textAlign="center"
+                  breakpointStyles={{
+                    md: { fontSize: "4.5xl", textAlign: "left" },
+                  }}
+                >
                   Join us in shaping trustworthy AI
-                </h2>
+                </Heading>
                 <p className="text-lg mb-6">
                   Mozilla’s work with AI isn’t just a new thing—we’ve spent
                   years funding, building and advocating for AI that’s open,
@@ -44,9 +52,16 @@ export const MissionSection = () => {
             <div className="flex flex-col items-center gap-12 md:grid md:grid-cols-2 md:gap-x-16 xl:gap-x-20">
               <img src={img2} alt="Image of a group of people at a party" />
               <div className="md:text-left">
-                <h2 className="text-3xl font-bold font-heading mb-4 md:text-4xl">
+                <Heading
+                  variant="h2"
+                  fontSize="3.5xl"
+                  textAlign="center"
+                  breakpointStyles={{
+                    md: { fontSize: "4.5xl", textAlign: "left" },
+                  }}
+                >
                   So, what is Mozilla?
-                </h2>
+                </Heading>
                 <p className="text-lg mb-6">
                   At its core, Mozilla is an activist organization led by the
                   Mozilla Foundation that makes change in the world through a
@@ -93,9 +108,16 @@ export const MissionSection = () => {
                 className="md:order-2"
               />
               <div className="md:text-left md:order-1">
-                <h2 className="text-3xl font-bold font-heading mb-4 md:text-4xl">
+                <Heading
+                  variant="h2"
+                  fontSize="3.5xl"
+                  textAlign="center"
+                  breakpointStyles={{
+                    md: { fontSize: "4.5xl", textAlign: "left" },
+                  }}
+                >
                   Join the fight for a healthy internet
-                </h2>
+                </Heading>
                 <p className="text-lg mb-6">
                   Your voice. Your code. Your ideas. There are literally
                   thousands of ways you can contribute to Mozilla.

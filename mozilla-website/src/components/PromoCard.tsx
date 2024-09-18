@@ -1,4 +1,5 @@
 import { Box } from "src/components/Box";
+import { Heading } from "src/components/Heading";
 import mozillaVPNProductFeature from "src/assets/mozilla-vpn-product-feature.svg";
 
 export const PromoCard = () => {
@@ -15,12 +16,16 @@ export const PromoCard = () => {
             <small className="block text-violet-600 uppercase font-bold text-base md:text-lg">
               Featured Product
             </small>
-            <h2 className="font-heading font-bold text-2xl md:text-3xl">
+            <Heading
+              variant="h2"
+              fontSize="2xl"
+              breakpointStyles={{ md: { fontSize: "2.5xl" } }}
+            >
               Blur your location & activity using{" "}
               <span className="font-bold font-heading text-violet-600 text-[length:inherit]">
                 Mozilla VPN
               </span>
-            </h2>
+            </Heading>
           </div>
           <a
             href="#"
