@@ -15,7 +15,7 @@ export const NewsletterForm = () => {
   };
 
   return (
-    <div className="text-left max-w-sm md:max-w-full">
+    <div className="text-left max-w-sm md:max-w-full md:ml-16">
       <form className="mb-6" onSubmit={handleSubmit}>
         <fieldset className="mb-6 flex flex-col gap-5">
           <div>

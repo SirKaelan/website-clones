@@ -1,10 +1,11 @@
 import { Box } from "src/components/Box";
+import { Container } from "src/components/Container";
 import dinoHead from "src/assets/dinosaur-head.svg";
 
 export const AboutSection = () => {
   return (
     <Box bgColor="gray" removePadding={"bottom"}>
-      <div className="max-w-4xl mx-auto">
+      <Container width="4.5xl">
         <h2 className="font-heading text-3xl font-bold md:text-4xl md:text-center">
           That one time we gave away our source-code…
         </h2>
@@ -45,7 +46,7 @@ export const AboutSection = () => {
             className="absolute top-4"
           />
         </div>
-      </div>
+      </Container>
     </Box>
   );
 };
