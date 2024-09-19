@@ -4,13 +4,10 @@ export const Box = ({ bgColor, removePadding, children }: BoxProps) => {
     ? genPaddingClasses(removePadding, paddingClasses)
     : "";
 
-  return (
-    <section
-      className={`py-12 px-6 md:px-16 xl-2:py-24 xl-2:px-20 ${bgClass} ${additionalPaddingClasses}`}
-    >
-      {children}
-    </section>
-  );
+  const classes =
+    `py-12 px-6 md:px-16 xl-2:py-24 xl-2:px-20 ${additionalPaddingClasses} ${bgClass}`.trim();
+
+  return <section className={classes}>{children}</section>;
 };
 
 type BoxProps = {

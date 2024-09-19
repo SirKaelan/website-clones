@@ -6,11 +6,21 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   safelist: [
     {
+      // Matches all font sizes
       pattern: /text-(\d+(\.\d+)?xl|xs|sm|base|lg|xl)/,
       variants: breakpointList,
     },
     {
+      // Matches text positions
       pattern: /text-(left|center|right)/,
+      variants: breakpointList,
+    },
+    // This one is useless, but i am leaving it in case
+    // i remove the explicit string with the breakpoint
+    // and tailwind class value
+    {
+      // Matches all "order" class values
+      pattern: /^(-)?order-([1-9]|1[0-2]|first|last|none)$/,
       variants: breakpointList,
     },
   ],

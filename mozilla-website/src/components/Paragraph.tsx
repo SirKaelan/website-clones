@@ -26,7 +26,7 @@ type ParagraphProps = {
   children: React.ReactNode;
 };
 
-type FontSize = "xs" | "lg" | "3xl";
+type FontSize = "xs" | "base" | "lg" | "3xl";
 
 type TextAlign = "left" | "center";
 
@@ -41,6 +41,7 @@ type Breakpoints = {
 
 const fontSizeClassMap: Record<FontSize, string> = {
   xs: "text-xs",
+  base: "text-base",
   lg: "text-lg",
   "3xl": "text-3xl",
 };

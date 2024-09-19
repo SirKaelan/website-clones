@@ -22,9 +22,11 @@ export const Header = () => {
               specialFont
               breakpointStyles={{ md: { fontSize: "3xl" } }}
             >
-              We’re not a normal tech company. The things we create prioritize
-              people and their privacy over profits. We exist to make the
-              internet a healthier, happier place for everyone.
+              <span className="block max-w-3xl">
+                We’re not a normal tech company. The things we create prioritize
+                people and their privacy over profits. We exist to make the
+                internet a healthier, happier place for everyone.
+              </span>
             </Paragraph>
           </div>
         </Container>
