@@ -1,32 +1,32 @@
-export const Heading = ({
-  variant,
-  fontSize = "3.5xl",
+export const Paragraph = ({
+  fontSize = "lg",
+  textAlign = "left",
+  specialFont = false,
   breakpointStyles = {},
-  textAlign = "center",
   children,
-}: HeadingProps) => {
+}: ParagraphProps) => {
   const baseFontSizeClass = fontSizeClassMap[fontSize];
-  const baseTextAlignClass = textAlignClassMap[textAlign];
+  const baseTextAlignClass =
+    textAlign !== "left" ? textAlignClassMap[textAlign] : "";
   const breakpointClasses = genBreakpointClasses(breakpointStyles);
-  const Tag = variant;
-  const classes =
-    `${baseFontSizeClass} font-bold font-heading ${baseTextAlignClass} mb-4 ${breakpointClasses}`.trim();
+  const fontClass = specialFont ? "font-heading" : "";
 
-  return <Tag className={classes}>{children}</Tag>;
+  const classes =
+    `${baseFontSizeClass} ${baseTextAlignClass} ${breakpointClasses} ${fontClass}`.trim();
+
+  return <p className={classes}>{children}</p>;
 };
 
 // Types
-type HeadingProps = {
-  variant: Variant;
+type ParagraphProps = {
   fontSize?: FontSize;
-  breakpointStyles?: Breakpoints;
   textAlign?: TextAlign;
+  specialFont?: boolean;
+  breakpointStyles?: Breakpoints;
   children: React.ReactNode;
 };
 
-type Variant = "h1" | "h2";
-
-type FontSize = "2xl" | "2.5xl" | "3.5xl" | "4.5xl" | "5.5xl";
+type FontSize = "xs" | "lg" | "3xl";
 
 type TextAlign = "left" | "center";
 
@@ -39,13 +39,10 @@ type Breakpoints = {
   md?: BreakpointValue;
 };
 
-// Records to map prop values to tailwind classes
 const fontSizeClassMap: Record<FontSize, string> = {
-  "2xl": "text-2xl",
-  "2.5xl": "text-2.5xl",
-  "3.5xl": "text-3.5xl",
-  "4.5xl": "text-4.5xl",
-  "5.5xl": "text-5.5xl",
+  xs: "text-xs",
+  lg: "text-lg",
+  "3xl": "text-3xl",
 };
 
 const textAlignClassMap: Record<TextAlign, string> = {

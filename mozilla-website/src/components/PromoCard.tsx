@@ -20,7 +20,9 @@ export const PromoCard = () => {
             <Heading
               variant="h2"
               fontSize="2xl"
-              breakpointStyles={{ md: { fontSize: "2.5xl" } }}
+              breakpointStyles={{
+                md: { fontSize: "2.5xl", textAlign: "left" },
+              }}
             >
               Blur your location & activity using{" "}
               <span className="font-bold font-heading text-violet-600 text-[length:inherit]">

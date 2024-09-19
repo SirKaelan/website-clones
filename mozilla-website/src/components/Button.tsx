@@ -5,7 +5,7 @@ export const Button = ({
   children,
 }: ButtonProps) => {
   const baseStyles =
-    "font-bold py-1.5 px-6 border-2 border-black rounded transition hover:bg-neutral-200";
+    "inline-block text-center font-bold py-1.5 px-6 border-2 border-black rounded transition hover:bg-neutral-200";
   const themeStyles =
     theme === "light"
       ? "bg-white text-black"

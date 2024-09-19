@@ -1,5 +1,6 @@
 import { Box } from "src/components/Box";
 import { Container } from "src/components/Container";
+import { Paragraph } from "src/components/Paragraph";
 import { FooterDropdownButton } from "src/components/FooterDropdownButton";
 import {
   footerButtonData,
@@ -98,7 +99,7 @@ export const Footer = () => {
                   ))}
                 </ul>
                 {/* Legal text */}
-                <p className="text-xs">
+                <Paragraph fontSize="xs">
                   {legalDataText.map((item, index) => {
                     if (item.type === "text") {
                       return <span key={index}>{item.content}</span>;
@@ -117,7 +118,7 @@ export const Footer = () => {
                     }
                     return null;
                   })}
-                </p>
+                </Paragraph>
               </div>
             </nav>
           </div>
