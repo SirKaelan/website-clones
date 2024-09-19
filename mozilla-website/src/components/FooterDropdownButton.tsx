@@ -45,7 +45,7 @@ export const FooterDropdownButton = ({ buttonData }: DropdownButtonProps) => {
         <h5 className="py-4 font-bold font-heading">{buttonData.title}</h5>
         <ul>
           {buttonData.links.map((link) => (
-            <li className="py-1 first:mt-2" key={link.title}>
+            <li className="py-1" key={link.title}>
               <a className="hover:underline" href={link.href}>
                 {link.title}
               </a>

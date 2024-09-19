@@ -1,6 +1,7 @@
 import { Box } from "src/components/Box";
 import { Container } from "src/components/Container";
 import { Heading } from "src/components/Heading";
+import { Button } from "src/components/Button";
 import { PromoCard } from "src/components/PromoCard";
 
 import img1 from "src/assets/img-1.jpg";
@@ -34,13 +35,7 @@ export const MissionSection = () => {
                   that serves the people, prioritizes transparency and supports
                   the public good, not corporate agendas.
                 </p>
-                {/* Maybe make this button reusable */}
-                <a
-                  className="inline-block py-1.5 px-6 font-bold text-white bg-black border-2 border-black rounded hover:bg-opacity-15 hover:text-black transition text-center"
-                  href="#"
-                >
-                  Read more
-                </a>
+                <Button href="#">Read more</Button>
               </div>
             </div>
           </Container>
@@ -85,12 +80,7 @@ export const MissionSection = () => {
                   based on the demands of shareholders — we don’t actually have
                   any of those.
                 </p>
-                <a
-                  className="inline-block py-1.5 px-6 font-bold text-white bg-black border-2 border-black rounded hover:bg-opacity-15 hover:text-black transition text-center"
-                  href="#"
-                >
-                  Learn about the Mozilla Foundation
-                </a>
+                <Button href="#">Learn about the Mozilla Foundation</Button>
               </div>
             </div>
           </Container>
@@ -122,12 +112,7 @@ export const MissionSection = () => {
                   Your voice. Your code. Your ideas. There are literally
                   thousands of ways you can contribute to Mozilla.
                 </p>
-                <a
-                  className="inline-block py-1.5 px-6 font-bold text-white bg-black border-2 border-black rounded hover:bg-opacity-15 hover:text-black transition text-center"
-                  href="#"
-                >
-                  Volunteer with Mozilla
-                </a>
+                <Button href="#">Volunteer with Mozilla</Button>
               </div>
             </div>
           </Container>

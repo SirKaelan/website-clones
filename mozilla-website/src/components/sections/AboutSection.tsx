@@ -1,6 +1,7 @@
 import { Box } from "src/components/Box";
 import { Container } from "src/components/Container";
 import { Heading } from "src/components/Heading";
+import { Button } from "src/components/Button";
 import dinoHead from "src/assets/dinosaur-head.svg";
 
 export const AboutSection = () => {
@@ -35,12 +36,7 @@ export const AboutSection = () => {
           </p>
         </div>
         <div className="flex justify-center">
-          <a
-            href="#"
-            className="text-base font-bold text-white py-2 px-6 bg-black rounded border-2 border-black hover:text-black hover:bg-neutral-200 transition"
-          >
-            Learn more about Mozilla
-          </a>
+          <Button href="#">Learn more about Mozilla</Button>
         </div>
         {/* Dino head */}
         <div className="relative h-24 flex justify-center overflow-clip">

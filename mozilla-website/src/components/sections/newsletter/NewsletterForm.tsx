@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "src/components/Button";
 
 export const NewsletterForm = () => {
   const [emailInteracted, setEmailInteracted] = useState<boolean>(false);
@@ -93,14 +94,9 @@ export const NewsletterForm = () => {
           )}
         </fieldset>
 
-        {/* Submit button */}
+        {/* Submit button section */}
         <div className="inline-block text-center md:w-full">
-          <button
-            type="submit"
-            className="py-1.5 px-6 w-full font-bold text-white bg-black border-2 border-black rounded hover:bg-opacity-15 hover:text-black transition"
-          >
-            Sign Up Now
-          </button>
+          <Button variant="button">Sign Up Now</Button>
           <span className="text-xs inline-block">
             We will only send you Mozilla-related information.
           </span>

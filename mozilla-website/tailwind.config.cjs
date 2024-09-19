@@ -1,8 +1,19 @@
 const default_theme = require("tailwindcss/defaultTheme");
+const breakpointList = ["xs", "xl-2", ...Object.keys(default_theme.screens)];
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  safelist: [
+    {
+      pattern: /text-(\d+(\.\d+)?xl|xs|sm|base|lg|xl)/,
+      variants: breakpointList,
+    },
+    {
+      pattern: /text-(left|center|right)/,
+      variants: breakpointList,
+    },
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -15,6 +26,7 @@ module.exports = {
       },
       maxWidth: {
         "4.5xl": "928px",
+        "7.5xl": "1440px",
       },
       fontSize: {
         "2.5xl": ["28px", { lineHeight: "30px" }],

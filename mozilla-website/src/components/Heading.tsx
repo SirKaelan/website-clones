@@ -61,11 +61,14 @@ const textAlignClassMap: Record<TextAlign, string> = {
 const genBreakpointClasses = (breakpointStyles: Breakpoints) => {
   return Object.entries(breakpointStyles)
     .map(([breakpoint, styles]) => {
-      const fontSizeClass =
-        styles.fontSize && fontSizeClassMap[styles.fontSize];
-      const textAlignClass =
-        styles.textAlign && textAlignClassMap[styles.textAlign];
-      return `${breakpoint}:${fontSizeClass} ${breakpoint}:${textAlignClass}`.trim();
+      const fontSizeClassString = styles.fontSize
+        ? `${breakpoint}:${fontSizeClassMap[styles.fontSize]}`
+        : "";
+      const textAlignClassString = styles.textAlign
+        ? `${breakpoint}:${textAlignClassMap[styles.textAlign]}`
+        : "";
+
+      return `${fontSizeClassString} ${textAlignClassString}`.trim();
     })
     .join(" ");
 };

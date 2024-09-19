@@ -1,3 +1,5 @@
+import { Button } from "src/components/Button";
+
 type ProductCardProps = {
   productName: string;
   productDescription: string;
@@ -18,12 +20,9 @@ export const ProductCard = ({
         width={50}
       />
       <h3 className="font-bold">{productDescription}</h3>
-      <a
-        className="py-1.5 px-6 font-bold border-2 border-black rounded hover:backdrop-brightness-90 transition"
-        href="#"
-      >
+      <Button theme="light" href="#">
         Get {productName}
-      </a>
+      </Button>
     </li>
   );
 };

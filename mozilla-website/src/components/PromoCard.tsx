@@ -1,5 +1,6 @@
 import { Box } from "src/components/Box";
 import { Heading } from "src/components/Heading";
+import { Button } from "src/components/Button";
 import mozillaVPNProductFeature from "src/assets/mozilla-vpn-product-feature.svg";
 
 export const PromoCard = () => {
@@ -27,12 +28,7 @@ export const PromoCard = () => {
               </span>
             </Heading>
           </div>
-          <a
-            href="#"
-            className="text-lg font-bold text-white py-2 px-6 bg-black rounded border-2 border-black hover:text-black hover:bg-neutral-200 transition"
-          >
-            Get Mozilla VPN
-          </a>
+          <Button href="#">Get Mozilla VPN</Button>
         </div>
       </Box>
     </aside>
