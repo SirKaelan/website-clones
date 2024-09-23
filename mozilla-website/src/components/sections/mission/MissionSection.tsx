@@ -8,7 +8,7 @@ import { missions } from "src/data/missionData";
 export const MissionSection = () => {
   return (
     <Box removePadding={["left", "right"]}>
-      <div className="text-center flex flex-col gap-12 xl:gap-24">
+      <div className="flex flex-col gap-12 xl:gap-24">
         {missions.map((mission, index) => {
           if (index === 1) {
             return (

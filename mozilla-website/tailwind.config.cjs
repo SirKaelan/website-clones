@@ -44,6 +44,12 @@ module.exports = {
         "4.5xl": ["38px", { lineHeight: "39.9px" }],
         "5.5xl": ["54px", { lineHeight: "54px" }],
       },
+      boxShadow: {
+        "nav-dropdown-1":
+          "0 16px 24px 2px rgba(29,17,51,.04),0 6px 32px 4px rgba(9,32,77,.12),0 8px 12px -5px rgba(29,17,51,.12)",
+        "nav-dropdown-2":
+          "0 0 1px 1px rgba(29,17,51,.04),0 0 3px 2px rgba(9,32,77,.12),0 0 2px -3px rgba(29,17,51,.12)",
+      },
     },
 
     // To add smaller breakpoints i need to

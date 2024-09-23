@@ -1,4 +1,4 @@
-import heartIcon from "src/assets/heart.svg";
+// import heartIcon from "src/assets/heart.svg";
 import firefoxLogo from "src/assets/firefox-logo.svg";
 import firefoxFocusLogo from "src/assets/firefox-focus-logo.svg";
 import penIcon from "src/assets/pen-icon.svg";
@@ -33,25 +33,28 @@ export type DownloadButtonType = {
   href: string;
 };
 
-type DropdownLink =
-  | {
-      id: number;
-      type: "link";
-      text: string;
-      href: string;
-      icon: string;
-    }
-  | {
-      id: number;
-      type: "cta";
-      text: string;
-      href: string;
-    };
+export type DropdownLink = {
+  id: number;
+  type: "link";
+  text: string;
+  href: string;
+  icon: string;
+  description: string;
+};
+
+export type DropdownCTA = {
+  id: number;
+  type: "cta";
+  text: string;
+  href: string;
+};
+
+type DropdownButton = DropdownLink | DropdownCTA;
 
 export type InnerDropdownButton = {
   id: number;
   text: string;
-  dropdownLinks: DropdownLink[];
+  dropdownLinks: DropdownButton[];
 };
 export type NavigationDropdownContent = {
   ctaButton: CharityButtonType | DownloadButtonType;
@@ -60,10 +63,9 @@ export type NavigationDropdownContent = {
 
 export const mainNavData: NavigationDropdownContent = {
   ctaButton: {
-    type: "charity-button",
-    text: "Donate",
+    type: "download-button",
+    text: "Download Firefox",
     href: "#",
-    icon: heartIcon,
   },
   innerDropdownData: [
     {
@@ -76,6 +78,8 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Firefox for Desktop",
           href: "#",
           icon: firefoxLogo,
+          description:
+            "Get the not-for-profit-backed browser on Windows, Mac or Linux.",
         },
         {
           id: 2,
@@ -83,6 +87,8 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Firefox for Android",
           href: "#",
           icon: firefoxLogo,
+          description:
+            "Get the customizable mobile browser for Android smartphones.",
         },
         {
           id: 3,
@@ -90,6 +96,7 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Firefox for iOS",
           href: "#",
           icon: firefoxLogo,
+          description: "Get the mobile browser for your iPhone or iPad.",
         },
         {
           id: 4,
@@ -97,6 +104,7 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Firefox Focus",
           href: "#",
           icon: firefoxFocusLogo,
+          description: "Simply private mobile browsing.",
         },
         {
           id: 5,
@@ -104,6 +112,8 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Firefox Blog",
           href: "#",
           icon: penIcon,
+          description:
+            "Read about new Firefox features and ways to stay safe online.",
         },
         {
           id: 6,
@@ -111,6 +121,7 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Release Notes",
           href: "#",
           icon: notebookIcon,
+          description: "Get the details on the latest Firefox updates.",
         },
         {
           id: 7,
@@ -130,6 +141,8 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Mozilla Monitor",
           href: "#",
           icon: mozillaMonitorIcon,
+          description:
+            "See if your email has appeared in a company’s data breach.",
         },
         {
           id: 9,
@@ -137,6 +150,8 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Facebook Container",
           href: "#",
           icon: facebookContainerIcon,
+          description:
+            "Help prevent Facebook from collecting your data outside their site.",
         },
         {
           id: 10,
@@ -144,6 +159,8 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Pocket",
           href: "#",
           icon: pocketLogo,
+          description:
+            "Save and discover the best stories from across the web.",
         },
         {
           id: 11,
@@ -151,6 +168,8 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Mozilla VPN",
           href: "#",
           icon: mozillaVPNLogo,
+          description:
+            "Get protection beyond your browser, on all your devices.",
         },
         {
           id: 12,
@@ -158,6 +177,8 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Firefox Relay",
           href: "#",
           icon: firefoxRelayLogoDark,
+          description:
+            "Sign up for new accounts without handing over your email address.",
         },
         {
           id: 13,
@@ -165,6 +186,7 @@ export const mainNavData: NavigationDropdownContent = {
           text: "MDN Plus",
           href: "#",
           icon: mdnLogoDark,
+          description: "New features and tools for a customized MDN experience",
         },
         {
           id: 14,
@@ -172,6 +194,7 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Fakespot",
           href: "#",
           icon: fakespotLogo,
+          description: "Use AI to detect fake reviews and scams",
         },
         {
           id: 15,
@@ -191,6 +214,8 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Mozilla Manifesto",
           href: "#",
           icon: clipboardIcon,
+          description:
+            "Learn about the values and principles that guide our mission.",
         },
         {
           id: 17,
@@ -198,6 +223,8 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Mozilla Foundation",
           href: "#",
           icon: buildingsIcon,
+          description:
+            "Meet the not-for-profit behind Firefox that stands for a better web.",
         },
         {
           id: 18,
@@ -205,6 +232,8 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Leadership",
           href: "#",
           icon: medalIcon,
+          description:
+            "Meet the team that’s building technology for a better internet.",
         },
         {
           id: 19,
@@ -212,6 +241,7 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Get involved",
           href: "#",
           icon: acceptedUserIcon,
+          description: "Join the fight for a healthy internet.",
         },
         {
           id: 20,
@@ -219,6 +249,8 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Careers",
           href: "#",
           icon: briefcaseIcon,
+          description:
+            "Work for a mission-driven organization that makes people-first products.",
         },
         {
           id: 21,
@@ -226,6 +258,7 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Mozilla Blog",
           href: "#",
           icon: penIcon,
+          description: "Learn about Mozilla and the issues that matter to us.",
         },
         {
           id: 22,
@@ -245,6 +278,7 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Firefox Developer Edition",
           href: "#",
           icon: firefoxDevEditionLogo,
+          description: "Get the Firefox browser built just for developers.",
         },
         {
           id: 24,
@@ -252,6 +286,7 @@ export const mainNavData: NavigationDropdownContent = {
           text: "MDN Web Docs",
           href: "#",
           icon: mdnLogo,
+          description: "Check out the home for web developer resources.",
         },
         {
           id: 25,
@@ -259,6 +294,7 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Mozilla Innovation Projects",
           href: "#",
           icon: mozillaInnovationIcon,
+          description: "Discover ways to bring bright ideas to life.",
         },
         {
           id: 26,
@@ -266,6 +302,8 @@ export const mainNavData: NavigationDropdownContent = {
           text: "Common Voice",
           href: "#",
           icon: mozillaCommonVoiceIcon,
+          description:
+            "Donate your voice so the future of the web can hear everyone.",
         },
       ],
     },

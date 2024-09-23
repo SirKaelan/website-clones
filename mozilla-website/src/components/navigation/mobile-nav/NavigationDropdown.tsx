@@ -1,4 +1,4 @@
-import { NavigationInnerDropdown } from "src/components/navigation/NavigationInnerDropdown";
+import { NavigationInnerDropdown } from "src/components/navigation/mobile-nav/NavigationInnerDropdown";
 import { CharityButton } from "src/components/navigation/CharityButton";
 import { DownloadButton } from "src/components/navigation/DownloadButton";
 
@@ -6,7 +6,7 @@ import { mainNavData } from "src/data/mainNavData";
 
 export const NavigationDropdown = ({ open }: NavigationDropdownProps) => {
   return (
-    <div className={`pb-4 px-6 divide-y ${open ? "block" : "hidden"}`}>
+    <div className={`divide-y ${open ? "block" : "hidden"} md:hidden`}>
       <div className="flex justify-center mt-8 mb-6">
         {mainNavData.ctaButton.type === "charity-button" && (
           <CharityButton buttonData={mainNavData.ctaButton} />
