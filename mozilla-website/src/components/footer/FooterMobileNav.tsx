@@ -3,7 +3,7 @@ import { DropdownButtonData } from "src/data/footerData";
 
 import plusIconWhite from "src/assets/plus-icon-white.svg";
 
-export const FooterDropdownButton = ({ buttonData }: DropdownButtonProps) => {
+export const FooterMobileNav = ({ buttonData }: DropdownButtonProps) => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
   const toggleDropdown = () => {
@@ -12,8 +12,6 @@ export const FooterDropdownButton = ({ buttonData }: DropdownButtonProps) => {
 
   return (
     <>
-      {/* TODO: Maybe make this a component */}
-      {/* Single column smallest width */}
       <div className="xs:hidden">
         <button
           className="flex justify-between py-4 w-full focus:outline-dotted outline-1"
@@ -38,20 +36,6 @@ export const FooterDropdownButton = ({ buttonData }: DropdownButtonProps) => {
             ))}
           </ul>
         )}
-      </div>
-
-      {/* Multi column and above */}
-      <div className="hidden xs:block">
-        <h5 className="py-4 font-bold font-heading">{buttonData.title}</h5>
-        <ul>
-          {buttonData.links.map((link) => (
-            <li className="py-1" key={link.title}>
-              <a className="hover:underline" href={link.href}>
-                {link.title}
-              </a>
-            </li>
-          ))}
-        </ul>
       </div>
     </>
   );

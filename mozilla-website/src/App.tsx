@@ -1,5 +1,5 @@
 import { Navigation } from "src/components/navigation/Navigation";
-import { Footer } from "src/components/Footer";
+import { Footer } from "src/components/footer/Footer";
 import { Header } from "src/components/Header";
 import { Quote } from "src/components/Quote";
 import { NewsletterSection } from "src/components/sections/newsletter/NewsletterSection";
