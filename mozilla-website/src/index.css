@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container-padding {
+  @apply py-12 px-6;
+}
+
+@layer utilities {
+  .remove-padding-top {
+    padding-top: 0 !important;
+  }
+
+  .remove-padding-bottom {
+    padding-bottom: 0 !important;
+  }
+
+  .remove-padding-left {
+    padding-left: 0 !important;
+  }
+
+  .remove-padding-right {
+    padding-right: 0 !important;
+  }
+}
