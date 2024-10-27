@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button } from "src/components/Button";
 
 type FormState = {
@@ -12,6 +12,11 @@ type FormErrors = {
   email: string;
   privacy: string;
 };
+
+type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
+type InputOrSelectChangeEvent = React.ChangeEvent<
+  HTMLInputElement | HTMLSelectElement
+>;
 
 export const NewsletterForm = () => {
   const [emailInteracted, setEmailInteracted] = useState<boolean>(false);
@@ -33,31 +38,13 @@ export const NewsletterForm = () => {
     setEmailInteracted(true);
   };
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFormElChange = (e: InputOrSelectChangeEvent) => {
     setFormValues((prevState) => ({
       ...prevState,
-      email: e.target.value,
-    }));
-  };
-
-  const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFormValues((prevState) => ({
-      ...prevState,
-      country: e.target.value,
-    }));
-  };
-
-  const handleLangChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFormValues((prevState) => ({
-      ...prevState,
-      lang: e.target.value,
-    }));
-  };
-
-  const handlePrivacyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormValues((prevState) => ({
-      ...prevState,
-      privacy: e.target.checked,
+      [e.target.name]:
+        e.target.type === "checkbox"
+          ? (e as InputChangeEvent).target.checked
+          : e.target.value,
     }));
   };
 
@@ -95,7 +82,7 @@ export const NewsletterForm = () => {
               placeholder="yourname@example.com"
               className="p-2 w-full border-2 rounded border-gray-400 hover:border-blue-800 placeholder-gray-500"
               onClick={handleEmailClick}
-              onChange={handleEmailChange}
+              onChange={handleFormElChange}
               value={formValues.email}
             />
           </div>
@@ -114,7 +101,7 @@ export const NewsletterForm = () => {
                   id="id_country"
                   name="country"
                   className="p-2 w-full bg-white border-2 rounded border-gray-400 hover:border-blue-800"
-                  onChange={handleCountryChange}
+                  onChange={handleFormElChange}
                   value={formValues.country}
                 >
                   <option value="bg">Bulgaria</option>
@@ -135,7 +122,7 @@ export const NewsletterForm = () => {
                   id="id_lang"
                   name="lang"
                   className="p-2 w-full bg-white border-2 rounded border-gray-400 hover:border-blue-800"
-                  onChange={handleLangChange}
+                  onChange={handleFormElChange}
                   value={formValues.lang}
                 >
                   <option value="bg">Bulgarian</option>
@@ -149,12 +136,13 @@ export const NewsletterForm = () => {
                 {formErrors.privacy && (
                   <div className="text-red-500">{formErrors.privacy}</div>
                 )}
-                <label htmlFor="privacy" className="text-sm font-bold">
+                <label htmlFor="id_privacy" className="text-sm font-bold">
                   <input
-                    id="privacy"
+                    id="id_privacy"
+                    name="privacy"
                     type="checkbox"
                     className="mr-2"
-                    onChange={handlePrivacyChange}
+                    onChange={handleFormElChange}
                     checked={formValues.privacy}
                   />
                   <span className="mr-1">
