@@ -7,12 +7,13 @@ type FormState = {
   lang: string;
   privacy: boolean;
 };
-
 type FormErrors = {
   email: string;
   privacy: string;
 };
-
+type Validator = (value: string) => string;
+type CheckboxValidator = (value: boolean) => string;
+type ValidatorRecord = Record<keyof FormErrors, Validator | CheckboxValidator>;
 type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
 type InputOrSelectChangeEvent = React.ChangeEvent<
   HTMLInputElement | HTMLSelectElement
@@ -39,6 +40,24 @@ export const NewsletterForm = () => {
   };
 
   const handleFormElChange = (e: InputOrSelectChangeEvent) => {
+    if (e.target.name in validators) {
+      if (e.target.type === "checkbox") {
+        setFormErrors((prevState) => ({
+          ...prevState,
+          [e.target.name]: (
+            validators[e.target.name as keyof FormErrors] as CheckboxValidator
+          )((e as InputChangeEvent).target.checked),
+        }));
+      } else {
+        setFormErrors((prevState) => ({
+          ...prevState,
+          [e.target.name]: (
+            validators[e.target.name as keyof FormErrors] as Validator
+          )(e.target.value),
+        }));
+      }
+    }
+
     setFormValues((prevState) => ({
       ...prevState,
       [e.target.name]:
@@ -50,15 +69,9 @@ export const NewsletterForm = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const errors: FormErrors = {
-      email: validateEmail(formValues.email),
-      privacy: validatePrivacy(formValues.privacy),
-    };
-
-    setFormErrors(errors);
-
-    if (Object.values(errors).filter((error) => error !== "").length === 0) {
+    if (
+      Object.values(formErrors).filter((error) => error !== "").length === 0
+    ) {
       console.log("Form submitted:", formValues);
       return;
     }
@@ -173,14 +186,20 @@ export const NewsletterForm = () => {
 };
 
 // Form field validators
-const validateEmail = (email: string): string => {
+const validateEmail: Validator = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!email) return "Email is required";
   if (!emailRegex.test(email)) return "Invalid email";
   return "";
 };
 
-const validatePrivacy = (privacy: boolean): string => {
+const validatePrivacy: CheckboxValidator = (privacy) => {
   if (!privacy) return "You must agree to the privacy policy";
   return "";
+};
+
+// Record of validators
+const validators: ValidatorRecord = {
+  email: validateEmail,
+  privacy: validatePrivacy,
 };
