@@ -1,85 +1,37 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "src/components/Button";
-
-type FormState = {
-  email: string;
-  country: string;
-  lang: string;
-  privacy: boolean;
-};
-type FormErrors = {
-  email: string;
-  privacy: string;
-};
-type Validator = (value: string) => string;
-type CheckboxValidator = (value: boolean) => string;
-type ValidatorRecord = Record<keyof FormErrors, Validator | CheckboxValidator>;
-type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
-type InputOrSelectChangeEvent = React.ChangeEvent<
-  HTMLInputElement | HTMLSelectElement
->;
+import { useForm } from "src/hooks/useForm";
 
 export const NewsletterForm = () => {
-  const [emailInteracted, setEmailInteracted] = useState<boolean>(false);
   // TODO: Do something about hardcoded country and lang codes
-  const [formValues, setFormValues] = useState<FormState>({
-    email: "",
-    country: "bg",
-    lang: "bg",
-    privacy: false,
+  const { formValues, formErrors, handleChange, handleSubmit } = useForm({
+    initialFormValues: {
+      email: "",
+      country: "bg",
+      lang: "bg",
+      // TODO: Try to fix hook to not have to write this assertion
+      privacy: false as boolean,
+    },
+    initialErrorValues: { email: "", privacy: "" },
+    validators: validatorsRecord,
   });
 
-  const [formErrors, setFormErrors] = useState<FormErrors>({
-    email: "",
-    privacy: "",
-  });
-
+  const [emailInteracted, setEmailInteracted] = useState<boolean>(false);
   const handleEmailClick = () => {
     if (emailInteracted) return;
     setEmailInteracted(true);
   };
 
-  const handleFormElChange = (e: InputOrSelectChangeEvent) => {
-    if (e.target.name in validators) {
-      if (e.target.type === "checkbox") {
-        setFormErrors((prevState) => ({
-          ...prevState,
-          [e.target.name]: (
-            validators[e.target.name as keyof FormErrors] as CheckboxValidator
-          )((e as InputChangeEvent).target.checked),
-        }));
-      } else {
-        setFormErrors((prevState) => ({
-          ...prevState,
-          [e.target.name]: (
-            validators[e.target.name as keyof FormErrors] as Validator
-          )(e.target.value),
-        }));
-      }
-    }
-
-    setFormValues((prevState) => ({
-      ...prevState,
-      [e.target.name]:
-        e.target.type === "checkbox"
-          ? (e as InputChangeEvent).target.checked
-          : e.target.value,
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (
-      Object.values(formErrors).filter((error) => error !== "").length === 0
-    ) {
-      console.log("Form submitted:", formValues);
-      return;
-    }
-  };
-
   return (
     <div className="text-left max-w-sm md:max-w-full md:ml-16">
-      <form className="mb-6" onSubmit={handleSubmit}>
+      <form
+        className="mb-6"
+        onSubmit={(e) =>
+          handleSubmit(e, (formValues) =>
+            console.log("Form submitted:", formValues)
+          )
+        }
+      >
         <fieldset className="mb-6 flex flex-col gap-5">
           <div>
             {formErrors.email && (
@@ -95,7 +47,7 @@ export const NewsletterForm = () => {
               placeholder="yourname@example.com"
               className="p-2 w-full border-2 rounded border-gray-400 hover:border-blue-800 placeholder-gray-500"
               onClick={handleEmailClick}
-              onChange={handleFormElChange}
+              onChange={(e) => handleChange("email", e.target.value)}
               value={formValues.email}
             />
           </div>
@@ -114,7 +66,7 @@ export const NewsletterForm = () => {
                   id="id_country"
                   name="country"
                   className="p-2 w-full bg-white border-2 rounded border-gray-400 hover:border-blue-800"
-                  onChange={handleFormElChange}
+                  onChange={(e) => handleChange("country", e.target.value)}
                   value={formValues.country}
                 >
                   <option value="bg">Bulgaria</option>
@@ -135,7 +87,7 @@ export const NewsletterForm = () => {
                   id="id_lang"
                   name="lang"
                   className="p-2 w-full bg-white border-2 rounded border-gray-400 hover:border-blue-800"
-                  onChange={handleFormElChange}
+                  onChange={(e) => handleChange("lang", e.target.value)}
                   value={formValues.lang}
                 >
                   <option value="bg">Bulgarian</option>
@@ -155,7 +107,7 @@ export const NewsletterForm = () => {
                     name="privacy"
                     type="checkbox"
                     className="mr-2"
-                    onChange={handleFormElChange}
+                    onChange={(e) => handleChange("privacy", e.target.checked)}
                     checked={formValues.privacy}
                   />
                   <span className="mr-1">
@@ -186,20 +138,21 @@ export const NewsletterForm = () => {
 };
 
 // Form field validators
-const validateEmail: Validator = (email) => {
+
+const validateEmail = (email: string): string => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!email) return "Email is required";
   if (!emailRegex.test(email)) return "Invalid email";
   return "";
 };
 
-const validatePrivacy: CheckboxValidator = (privacy) => {
+const validatePrivacy = (privacy: boolean): string => {
   if (!privacy) return "You must agree to the privacy policy";
   return "";
 };
 
 // Record of validators
-const validators: ValidatorRecord = {
+const validatorsRecord = {
   email: validateEmail,
   privacy: validatePrivacy,
 };
