@@ -1,7 +1,12 @@
+import { FloatingHeader } from "./components/FloatingHeader";
+
 function App() {
   return (
     <>
-      <div className="text-4xl">Dashyboard</div>
+      <div className="p-6">
+        <FloatingHeader />
+        <span className="text-4xl">Dashyboard</span>
+      </div>
     </>
   );
 }
