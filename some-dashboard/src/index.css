@@ -118,3 +118,46 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+}
+
+@utility blue-gradient-bg {
+  background: linear-gradient(195deg, rgb(73, 163, 241), rgb(26, 115, 232));
+}
+@utility blue-shadow {
+  box-shadow: rgba(0, 0, 0, 0.14) 0rem 0.25rem 1.25rem 0rem,
+    rgba(0, 187, 212, 0.4) 0rem 0.4375rem 0.625rem -0.3125rem;
+}
+
+@utility black-gradient-bg {
+  background: linear-gradient(195deg, rgb(66, 66, 74), rgb(25, 25, 25));
+}
+@utility black-shadow {
+  box-shadow: rgba(0, 0, 0, 0.14) 0rem 0.25rem 1.25rem 0rem,
+    rgba(64, 64, 64, 0.4) 0rem 0.4375rem 0.625rem -0.3125rem;
+}
+
+@utility green-gradient-bg {
+  background: linear-gradient(195deg, rgb(102, 187, 106), rgb(67, 160, 71));
+}
+@utility green-shadow {
+  box-shadow: rgba(0, 0, 0, 0.14) 0rem 0.25rem 1.25rem 0rem,
+    rgba(76, 175, 79, 0.4) 0rem 0.4375rem 0.625rem -0.3125rem;
+}
+
+@utility red-gradient-bg {
+  background: linear-gradient(195deg, rgb(236, 64, 122), rgb(216, 27, 96));
+}
+@utility red-shadow {
+  box-shadow: rgba(0, 0, 0, 0.14) 0rem 0.25rem 1.25rem 0rem,
+    rgba(233, 30, 98, 0.4) 0rem 0.4375rem 0.625rem -0.3125rem;
+}
+
+@utility hr-fade {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #9ca3af, transparent);
+  margin: 1rem 0;
+  opacity: 0.25;
+}
